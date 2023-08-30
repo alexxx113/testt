@@ -316,9 +316,7 @@
         var email = Lampa.Storage.get('account', {}).email;
         if (u.indexOf('box_mac=') == -1) u = Lampa.Utils.addUrlComponent(u, 'box_mac=' + unic_id);else u = u.replace(/box_mac=[^&]+/, 'box_mac=' + unic_id);
 
-        if (email) {
-          if (u.indexOf('account_email=') == -1) u = Lampa.Utils.addUrlComponent(u, 'account_email=' + encodeURIComponent(email));else u = u.replace(/account_email=[^&]+/, 'account_email=' + encodeURIComponent(email));
-        }
+
 
         return u;
       };
