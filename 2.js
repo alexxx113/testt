@@ -45,7 +45,7 @@
         if (!url) url = qualitys[Lampa.Arrays.getKeys(qualitys)[0]].replace("https","http");
       }
 
-      return url;
+      return url.replace("https","http");
     }
 
     function play(element) {
