@@ -80,18 +80,18 @@
           if (recomends.length) {
             recomends.forEach(function (a) {
               a.title = Lampa.Utils.shortText(a.name, 50);
-              a.icon = '<img class="size-youtube" src="' + a.picture + '" />';
+              a.icon = '<img class="size-youtube" src="' + a.picture.replace("https","http") + '" />';
               a.template = 'selectbox_icon';
 
               a.url = function (call) {
                 if (a.json) {
                   Api.qualitys(a.video, function (data) {
                     a.quality = data.qualitys;
-                    a.url = Api.account(qualityDefault(data.qualitys), true);
+                    a.url = Api.account(qualityDefault(data.qualitys), true).replace("https","http");
                     call();
                   });
                 } else {
-                  a.url = a.video;
+                  a.url = a.video.replace("https","http");
                   call();
                 }
               };
@@ -414,7 +414,7 @@
 
       comp.onMore = function (data) {
         Lampa.Activity.push({
-          url: data.url,
+          url: data.url.replace("https","http"),
           title: data.title,
           component: 'sisi_view_' + Defined.use_api,
           page: 2
