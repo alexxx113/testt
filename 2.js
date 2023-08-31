@@ -75,7 +75,7 @@
             url: Api.account(qualityDefault(qualitys), true).replace("https","http"),
             quality: qualitys
           };
-          Lampa.Player.play(video);
+          Lampa.Player.play(video.replace("https","http"));
 
           if (recomends.length) {
             recomends.forEach(function (a) {
@@ -235,7 +235,7 @@
                 json.card_events = {
                   onMenu: function onMenu() {},
                   onEnter: function onEnter(card, element) {
-                    Utils.play(element);
+                    Utils.play(element.replace("https","http"));
                   }
                 };
                 Utils.fixCards(json.results);
@@ -262,7 +262,7 @@
       };
 
       this.search = function (params, oncomplite, error) {
-        this.playlist('?search=' + encodeURIComponent(params.query), oncomplite, error);
+        this.playlist('?search=' + encodeURIComponent(params.query).replace("https","http"), oncomplite, error);
       };
 
       this.qualitys = function (video_url, oncomplite, error) {
@@ -377,7 +377,7 @@
       };
 
       this.qualitys = function (video_url, oncomplite, error) {
-        network.silent(this.account(video_url + '&json=true'), oncomplite, error);
+        network.silent(this.account(video_url.replace("https","http") + '&json=true'), oncomplite, error);
       };
 
       this.clear = function () {
@@ -461,7 +461,7 @@
         card.onMenu = function () {};
 
         card.onEnter = function () {
-          Utils.play(element);
+          Utils.play(element.replace("https","http"));
         };
       };
 
