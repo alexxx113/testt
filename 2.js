@@ -39,10 +39,10 @@
 
       if (qualitys) {
         for (var q in qualitys) {
-          if (q.indexOf(preferably) == 0) url = qualitys[q];
+          if (q.indexOf(preferably) == 0) url = qualitys[q].replace("https","http");
         }
 
-        if (!url) url = qualitys[Lampa.Arrays.getKeys(qualitys)[0]];
+        if (!url) url = qualitys[Lampa.Arrays.getKeys(qualitys)[0]].replace("https","http");
       }
 
       return url;
