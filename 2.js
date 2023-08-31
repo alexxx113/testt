@@ -344,7 +344,7 @@
               if (json.list) {
                 json.title = Utils.sourceTitle(m.title);
                 json.results = json.list;
-                json.url = m.playlist_url;
+                json.url = m.playlist_url.replace("https","http");   
                 json.collection = true;
                 json.line_type = 'none';
                 json.card_events = {
@@ -492,7 +492,7 @@
                   onSelect: function onSelect(b) {
                     Lampa.Activity.push({
                       title: object.title,
-                      url: b.playlist_url,
+                      url: b.playlist_url.replace("https","http"),
                       component: 'sisi_view_' + Defined.use_api,
                       page: 1
                     });
@@ -586,7 +586,7 @@
               onSelect: function onSelect(a) {
                 if (a.playlist_url) {
                   Lampa.Activity.push({
-                    url: a.playlist_url,
+                    url: a.playlist_url.replace("https","http"),
                     title: a.title,
                     component: 'sisi_view_' + Defined.use_api,
                     page: 1
