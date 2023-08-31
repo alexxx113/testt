@@ -461,7 +461,7 @@
         card.onMenu = function () {};
 
         card.onEnter = function () {
-          Utils.play(element.replace("https","http"));
+          Utils.play(element);
         };
       };
 
