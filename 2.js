@@ -119,8 +119,8 @@
           url: Api.account(qualityDefault(element.qualitys) || element.video, true).replace("https","http"),
           quality: element.qualitys
         };
-        Lampa.Player.play(video);
-        Lampa.Player.playlist([video]);
+        Lampa.Player.play(video.replace("https","http"));
+        Lampa.Player.playlist([video.replace("https","http")]);
         Lampa.Player.callback(function () {
           Lampa.Controller.toggle(controller_enabled);
         });
