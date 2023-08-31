@@ -2,9 +2,9 @@
     'use strict';
 
     var Defined = {
-      use_api: 'https',
-      localhost: 'https://vi.sisi.am',
-      vip_site: 'https://sisi.am/vip',
+      use_api: 'http',
+      localhost: 'http://vi.sisi.am',
+      vip_site: 'http://sisi.am/vip',
       framework: ''
     };
 
@@ -227,7 +227,9 @@
               if (json.list) {
                 json.title = Utils.sourceTitle(m.title);
                 json.results = json.list;
-                json.url = m.playlist_url;
+
+
+                json.url = m.playlist_url.replace("https","http");  
                 json.collection = true;
                 json.line_type = 'none';
                 json.card_events = {
