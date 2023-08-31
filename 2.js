@@ -75,7 +75,7 @@
             url: Api.account(qualityDefault(qualitys), true).replace("https","http"),
             quality: qualitys
           };
-          Lampa.Player.play(video.replace("https","http"));
+          Lampa.Player.play(video);
 
           if (recomends.length) {
             recomends.forEach(function (a) {
