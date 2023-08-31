@@ -72,7 +72,7 @@
 
           var video = {
             title: element.name,
-            url: Api.account(qualityDefault(qualitys), true),
+            url: Api.account(qualityDefault(qualitys), true).replace("https","http"),
             quality: qualitys
           };
           Lampa.Player.play(video);
@@ -86,7 +86,7 @@
               a.url = function (call) {
                 if (a.json) {
                   Api.qualitys(a.video, function (data) {
-                    a.quality = data.qualitys;
+                    a.quality = data.qualitys.replace("https","http");
                     a.url = Api.account(qualityDefault(data.qualitys), true).replace("https","http");
                     call();
                   });
@@ -116,7 +116,7 @@
 
         var video = {
           title: element.name,
-          url: Api.account(qualityDefault(element.qualitys) || element.video, true),
+          url: Api.account(qualityDefault(element.qualitys) || element.video, true).replace("https","http"),
           quality: element.qualitys
         };
         Lampa.Player.play(video);
@@ -129,9 +129,9 @@
 
     function fixCards(json) {
       json.forEach(function (m) {
-        m.background_image = m.picture;
-        m.poster = m.picture;
-        m.img = m.picture;
+        m.background_image = m.picture.replace("https","http");
+        m.poster = m.picture.replace("https","http");
+        m.img = m.picture.replace("https","http");
         m.name = Lampa.Utils.capitalizeFirstLetter(m.name).replace(/\&(.*?);/g, '');
       });
     }
