@@ -3,7 +3,7 @@
 
     var Defined = {
       use_api: 'http',
-      localhost: 'http://vi.sisi.am',
+      localhost: 'https://vi.sisi.am',
       vip_site: 'http://sisi.am/vip',
       framework: ''
     };
